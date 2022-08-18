@@ -44,7 +44,7 @@ class Tika implements ExtractorInterface
         if (false === $commandPath) {
             return false;
         }
-        $command = sprintf('%s -jar %s --json %s', $commandPath, $this->config['jar_path'], $filePath);
+        $command = sprintf('%s -jar %s --jsonRecursive --text-main %s', $commandPath, $this->config['jar_path'], $filePath);
         $metadata = json_decode($this->cli->execute($command), true);
         return $metadata;
     }
